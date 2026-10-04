@@ -1,0 +1,107 @@
+{
+  "script_sha256": "e4d987621a02127827d7ac9fd818367d6bf28f1ac112138b8772fce4eb6c12f1",
+  "checks": [
+    {
+      "name": "interactive_install_shared_443_and_special_characters",
+      "passed": true
+    },
+    {
+      "name": "real_trojan_and_hysteria2_tls_http_integrity",
+      "passed": true
+    },
+    {
+      "name": "both_protocols_reject_wrong_password",
+      "passed": true
+    },
+    {
+      "name": "certificate_deploy_hook_reloads_working_protocols",
+      "passed": true
+    },
+    {
+      "name": "already_current_update_does_not_restart",
+      "passed": true
+    },
+    {
+      "name": "newer_installed_version_is_not_downgraded",
+      "passed": true
+    },
+    {
+      "name": "failed_update_restores_previous_binary_and_working_service",
+      "passed": true
+    },
+    {
+      "name": "successful_update_preserves_accounts_domain_ports",
+      "passed": true
+    },
+    {
+      "name": "update_preserves_an_intentionally_stopped_service",
+      "passed": true
+    },
+    {
+      "name": "incompatible_configuration_blocks_update_before_replacement",
+      "passed": true
+    },
+    {
+      "name": "failed_update_download_keeps_running_program",
+      "passed": true
+    },
+    {
+      "name": "uninstall_removes_only_owned_data",
+      "passed": true
+    },
+    {
+      "name": "repeated_uninstall_is_safe",
+      "passed": true
+    },
+    {
+      "name": "separate_tcp_udp_ports_and_leading_zero",
+      "passed": true
+    },
+    {
+      "name": "foreign_owner_is_not_deleted",
+      "passed": true
+    },
+    {
+      "name": "symlink_target_is_not_deleted",
+      "passed": true
+    },
+    {
+      "name": "occupied_port_is_preserved",
+      "passed": true
+    },
+    {
+      "name": "bad_checksum_blocks_execution",
+      "passed": true
+    },
+    {
+      "name": "password_confirmation_fails_before_changes",
+      "passed": true
+    }
+  ],
+  "isolated_network_and_pid_namespaces": true,
+  "actual_core_version": "1.14.2",
+  "mocked_components": [
+    "package installation",
+    "DNS lookup",
+    "Certbot issuance with a private test CA",
+    "GitHub transport using an official verified archive",
+    "systemd lifecycle controller"
+  ],
+  "real_components": [
+    "Bash interactive input",
+    "OpenSSL hostname/chain/key validation",
+    "SHA256 verification",
+    "sing-box config validation",
+    "systemd-analyze unit validation",
+    "Trojan TLS proxy",
+    "Hysteria2 QUIC proxy",
+    "file deletion guards",
+    "update rollback"
+  ],
+  "report_created_utc": "2026-10-04T21:10:01.144224+00:00",
+  "bash_syntax": "PASS",
+  "shellcheck": "PASS",
+  "validation_platform": "Ubuntu 26.04 amd64 under WSL; isolated network and PID namespaces",
+  "production_vps_install_performed": false,
+  "public_acme_issuance_performed": false
+}
