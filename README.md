@@ -119,6 +119,8 @@ systemctl start dual-proxy-renew.service
 
 ## 验证记录与适用范围
 
+重装或迁移时，如果要求保留原代理密码，应在交互提示中填写原密码，并在安装后核对既有客户端。自动执行方不得自行生成替代密码；临时客户端测试通过不能代替原客户端凭据的一致性检查。
+
 首次安装固定使用 **sing-box 1.14.2**，并校验官方 SHA-256。`--update` 从官方 GitHub 发布获取最新稳定版。
 
 当前脚本已通过 Bash 语法检查、ShellCheck，以及 Ubuntu 26.04 amd64 隔离环境中的 **19 项检查**，包括实际 Trojan / Hysteria2 数据传输、错误密码拒绝、同号/不同端口、更新保留配置、失败回滚和卸载范围保护。完整记录见 [validation/2026-10-05.json](validation/2026-10-05.json)，脚本摘要见 [SHA256SUMS](SHA256SUMS)。
