@@ -123,7 +123,11 @@ systemctl start dual-proxy-renew.service
 
 当前脚本已通过 Bash 语法检查、ShellCheck，以及 Ubuntu 26.04 amd64 隔离环境中的 **19 项检查**，包括实际 Trojan / Hysteria2 数据传输、错误密码拒绝、同号/不同端口、更新保留配置、失败回滚和卸载范围保护。完整记录见 [validation/2026-10-05.json](validation/2026-10-05.json)，脚本摘要见 [SHA256SUMS](SHA256SUMS)。
 
-验证真实执行了 Bash 交互、OpenSSL 校验、SHA-256、官方 sing-box 核心、协议传输、systemd 单元静态校验、清理和回滚代码。软件包安装、DNS、公网 ACME 签发、GitHub 下载传输、systemd 生命周期控制使用了模拟组件；证书来自私有测试 CA。尚未使用本脚本在全新公网 VPS 上完成实机安装与公开 CA 签发，其他发行版版本及 ARM64 也未实机验证。
+上述隔离验证真实执行了 Bash 交互、OpenSSL 校验、SHA-256、官方核心、协议传输、单元静态校验、清理和回滚代码；软件包、DNS、公开 ACME、GitHub 传输、systemd 生命周期控制使用模拟组件，证书来自私有测试 CA。
+
+随后于 2026-10-05 使用同一 SHA-256 的公开脚本，在重装后的 Ubuntu 26.04.1 minimal / amd64 / KVM / UEFI VPS 上完成真实安装、Let's Encrypt HTTP-01 签发和服务启动。Trojan TCP 443 / Hysteria2 UDP 443 的直连证书校验、外部 HTTPS、32 MiB 双向传输、逐步到达的 SSE、WebSocket、UDP 转发、错误密码拒绝和重启后新连接均通过。详见 [真实 VPS 记录](https://github.com/zhysky/vps-toolbox/blob/main/validation/2026-10-05.md)。
+
+续期 service 已实际正常执行；证书尚未到期，因此不等于验证了未来自动续期。手动证书重载曾中断正在进行的一条上传，新连接及独立复测恢复正常；不要假定重载保持所有既有连接。真实 VPS 按要求保留服务，未做卸载；其他发行版版本和 ARM64 仍未实机验证。
 
 ## 参考
 
